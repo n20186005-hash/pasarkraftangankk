@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" width="180" height="180">
+  <defs>
+    <linearGradient id="aw" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="#30778d"/>
+      <stop offset="100%" stop-color="#54b0c6"/>
+    </linearGradient>
+    <linearGradient id="awv" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#b6753c"/>
+      <stop offset="100%" stop-color="#c48e55"/>
+    </linearGradient>
+  </defs>
+  <rect width="180" height="180" rx="36" fill="url(#aw)"/>
+  <path d="M28 124 Q50 96 72 124 T116 124 T160 124" stroke="#ffffff" stroke-width="6" fill="none" opacity="0.75"/>
+  <path d="M28 140 Q50 112 72 140 T116 140 T160 140" stroke="#ffffff" stroke-width="6" fill="none" opacity="0.55"/>
+  <g transform="translate(22,22)" fill="url(#awv)">
+    <rect x="0" y="0" width="20" height="20" rx="3"/>
+    <rect x="26" y="0" width="20" height="20" rx="3"/>
+    <rect x="52" y="0" width="20" height="20" rx="3"/>
+    <rect x="78" y="0" width="20" height="20" rx="3"/>
+    <rect x="104" y="0" width="20" height="20" rx="3"/>
+    <rect x="13" y="26" width="20" height="20" rx="3"/>
+    <rect x="39" y="26" width="20" height="20" rx="3"/>
+    <rect x="65" y="26" width="20" height="20" rx="3"/>
+    <rect x="91" y="26" width="20" height="20" rx="3"/>
+    <rect x="117" y="26" width="20" height="20" rx="3"/>
+    <rect x="0" y="52" width="20" height="20" rx="3"/>
+    <rect x="26" y="52" width="20" height="20" rx="3"/>
+    <rect x="52" y="52" width="20" height="20" rx="3"/>
+    <rect x="78" y="52" width="20" height="20" rx="3"/>
+    <rect x="104" y="52" width="20" height="20" rx="3"/>
+  </g>
+  <circle cx="130" cy="146" r="18" fill="#e25d4a" opacity="0.88"/>
+</svg>

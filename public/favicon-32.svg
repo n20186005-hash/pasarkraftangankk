@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <rect width="32" height="32" rx="7" fill="#30778d"/>
+  <path d="M5 22 Q10 17 15 22 T25 22" stroke="#ffffff" stroke-width="1.4" fill="none" opacity="0.75"/>
+  <path d="M5 25 Q10 20 15 25 T25 25" stroke="#ffffff" stroke-width="1.4" fill="none" opacity="0.55"/>
+  <g transform="translate(4,4)" fill="#c48e55">
+    <rect x="0" y="0" width="4" height="4" rx="0.8"/>
+    <rect x="6" y="0" width="4" height="4" rx="0.8"/>
+    <rect x="12" y="0" width="4" height="4" rx="0.8"/>
+    <rect x="18" y="0" width="4" height="4" rx="0.8"/>
+    <rect x="2" y="6" width="4" height="4" rx="0.8"/>
+    <rect x="8" y="6" width="4" height="4" rx="0.8"/>
+    <rect x="14" y="6" width="4" height="4" rx="0.8"/>
+    <rect x="20" y="6" width="4" height="4" rx="0.8"/>
+    <rect x="0" y="12" width="4" height="4" rx="0.8"/>
+    <rect x="6" y="12" width="4" height="4" rx="0.8"/>
+    <rect x="12" y="12" width="4" height="4" rx="0.8"/>
+    <rect x="18" y="12" width="4" height="4" rx="0.8"/>
+  </g>
+  <circle cx="24" cy="27" r="3" fill="#e25d4a" opacity="0.88"/>
+</svg>
