@@ -11,6 +11,7 @@
     "dev": "astro dev",
     "check": "astro check",
     "build": "astro build",
+    "deploy": "wrangler deploy",
     "preview": "astro preview",
     "astro": "astro"
   },
@@ -26,6 +27,7 @@
     "autoprefixer": "10.5.4",
     "postcss": "8.5.26",
     "tailwindcss": "3.4.19",
-    "typescript": "5.8.3"
+    "typescript": "5.8.3",
+    "wrangler": "4.121.0"
   }
 }
