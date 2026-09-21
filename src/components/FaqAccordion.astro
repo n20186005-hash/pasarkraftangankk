@@ -1,8 +1,16 @@
 ---
-import { FAQS } from '@/consts';
+import { localePaths, type Locale } from '@/i18n/config';
+import { translations } from '@/i18n/ui';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = translations[locale];
 
 const site = Astro.site;
-const faqPage = site ? new URL('/#faq', site).toString() : undefined;
+const faqPage = site ? new URL(`${localePaths[locale]}#faq`, site).toString() : undefined;
 ---
 
 <aside class="hidden" aria-hidden="true">
@@ -13,7 +21,8 @@ const faqPage = site ? new URL('/#faq', site).toString() : undefined;
       '@context': 'https://schema.org',
       '@type': 'FAQPage',
       '@id': faqPage ? `${faqPage}#faqpage` : undefined,
-      mainEntity: FAQS.map((f, idx) => ({
+      inLanguage: t.meta.htmlLang,
+      mainEntity: t.faq.items.map((f, idx) => ({
         '@type': 'Question',
         name: f.q,
         acceptedAnswer: {
@@ -31,17 +40,16 @@ const faqPage = site ? new URL('/#faq', site).toString() : undefined;
     <div class="max-w-3xl mb-10 md:mb-12">
       <span class="section-eyebrow">
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>
-        Soalan Lazim
+        {t.faq.eyebrow}
       </span>
-      <h2 class="section-title mt-3">FAQ · Soalan yang sering ditanya</h2>
+      <h2 class="section-title mt-3">{t.faq.title}</h2>
       <p class="mt-3 text-sabah-ocean-700 leading-prose">
-        Jawapan jelas untuk 15 soalan paling kerap ditanya oleh pelawat sebelum
-        melawat Pasar Kraftangan Kota Kinabalu.
+        {t.faq.intro}
       </p>
     </div>
 
     <div class="grid gap-3">
-      {FAQS.map((f, i) => (
+      {t.faq.items.map((f, i) => (
         <details
           class={`group card p-0 overflow-hidden transition ${i === 0 ? 'open' : ''}`}
           {...(i === 0 ? { open: true } : {})}

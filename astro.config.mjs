@@ -4,7 +4,7 @@ import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
 import { defineConfig } from 'astro/config';
 
-const SITE_URL = '';
+const SITE_URL = 'https://pasarkraftangankk.com';
 
 const integrations = [tailwind({ applyBaseStyles: false })];
 

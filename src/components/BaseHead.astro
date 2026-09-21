@@ -1,23 +1,38 @@
 ---
-import { SITE } from '@/consts';
+import { DEFAULT_LOCALE, LOCALES, localePaths, type Locale } from '@/i18n/config';
+import { translations } from '@/i18n/ui';
+
+interface Props {
+  title: string;
+  description: string;
+  locale: Locale;
+  image?: string;
+  canonical?: string;
+  /** Per-locale paths of the same page (root-relative). Defaults to the locale roots. */
+  alternatePaths?: Record<Locale, string>;
+}
 
 const {
-  title = SITE.title,
-  description = SITE.description,
+  title,
+  description,
+  locale,
   image = '/gallery/handicraft-market-01.jpg',
   canonical = Astro.url.pathname,
+  alternatePaths = localePaths,
 } = Astro.props;
 
+const t = translations[locale];
+
 const site = Astro.site;
-const canonicalUrl = site
-  ? new URL(canonical, site).toString()
-  : canonical;
-const ogImage = site
-  ? new URL(image, site).toString()
-  : image;
-const ogType = 'website';
-const locale = SITE.locale;
-const language = SITE.language;
+const canonicalUrl = site ? new URL(canonical, site).toString() : canonical;
+const ogImage = site ? new URL(image, site).toString() : image;
+
+const alternates = LOCALES.map((l) => ({
+  lang: l,
+  href: site ? new URL(alternatePaths[l], site).toString() : alternatePaths[l],
+}));
+const xDefaultPath = alternatePaths[DEFAULT_LOCALE] ?? localePaths[DEFAULT_LOCALE];
+const xDefaultUrl = site ? new URL(xDefaultPath, site).toString() : xDefaultPath;
 ---
 
 <meta charset="UTF-8" />
@@ -27,18 +42,22 @@ const language = SITE.language;
 <title>{title}</title>
 <meta name="title" content={title} />
 <meta name="description" content={description} />
-<meta name="language" content={language} />
+<meta name="language" content={t.meta.htmlLang} />
 
 {site && <link rel="canonical" href={canonicalUrl} />}
+{alternates.map((a) => (
+  <link rel="alternate" hreflang={a.lang} href={a.href} />
+))}
+{xDefaultUrl && <link rel="alternate" hreflang="x-default" href={xDefaultUrl} />}
 
 <link rel="icon" type="image/svg+xml" href="/favicon-32.svg" sizes="32x32" />
 <link rel="icon" type="image/svg+xml" href="/favicon-16.svg" sizes="16x16" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="apple-touch-icon" type="image/svg+xml" href="/apple-touch-icon.svg" />
 
-<meta property="og:type" content={ogType} />
-<meta property="og:locale" content={locale} />
-<meta property="og:site_name" content={SITE.name} />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content={t.meta.ogLocale} />
+<meta property="og:site_name" content={t.meta.name} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 {site && <meta property="og:url" content={canonicalUrl} />}

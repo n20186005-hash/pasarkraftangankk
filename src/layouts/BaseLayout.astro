@@ -4,47 +4,92 @@ import BaseHead from '@/components/BaseHead.astro';
 import GA4 from '@/components/GA4.astro';
 import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
-import { SITE } from '@/consts';
+import { SITE, GALLERY, CONTENT_DATE } from '@/consts';
+import { localePaths, pagePaths, type Locale, type PageKey } from '@/i18n/config';
+import { translations } from '@/i18n/ui';
+
+interface FaqItem {
+  q: string;
+  a: string;
+}
+
+interface Breadcrumb {
+  name: string;
+  pageKey: PageKey;
+}
+
+interface Props {
+  locale: Locale;
+  title?: string;
+  description?: string;
+  image?: string;
+  /** Which page this is — decides canonical & hreflang targets. Defaults to the locale root. */
+  pageKey?: PageKey;
+  /** When provided, a FAQPage JSON-LD block is emitted. */
+  faq?: FaqItem[];
+  /** When provided, a BreadcrumbList JSON-LD block is emitted (home is prepended). */
+  breadcrumbs?: Breadcrumb[];
+  /** 'place' = TouristAttraction + LocalBusiness, 'guide' = Article. */
+  schema?: 'place' | 'guide';
+}
 
 const {
-  title = SITE.title,
-  description = SITE.description,
-  image = '/gallery/handicraft-market-01.jpg',
+  locale,
+  title,
+  description,
+  image = GALLERY[0],
+  pageKey = 'home',
+  faq,
+  breadcrumbs,
+  schema = 'place',
 } = Astro.props;
 
+const t = translations[locale];
+const resolvedTitle = title ?? t.meta.title;
+const resolvedDescription = description ?? t.meta.description;
+
 const site = Astro.site;
-const baseUrl = site ? site.toString() : undefined;
+const paths = pagePaths[pageKey];
+const localeUrl = site ? new URL(paths[locale], site).toString() : paths[locale];
+const ogImage = site ? new URL(image, site).toString() : image;
+const homeUrl = site ? new URL(localePaths[locale], site).toString() : localePaths[locale];
+
+const addressLd = {
+  '@type': 'PostalAddress',
+  streetAddress: '7, Jalan Tun Fuad Stephen, Pusat Bandar Kota Kinabalu',
+  addressLocality: 'Kota Kinabalu',
+  addressRegion: 'Sabah',
+  postalCode: '88000',
+  addressCountry: 'MY',
+};
+
+const openingHoursLd = [
+  {
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+    opens: '09:00',
+    closes: '18:00',
+  },
+];
+
+const geoLd = {
+  '@type': 'GeoCoordinates',
+  latitude: SITE.coordinates.lat,
+  longitude: SITE.coordinates.lng,
+};
 
 const touristAttractionLd = {
   '@context': 'https://schema.org',
   '@type': 'TouristAttraction',
-  name: SITE.name,
-  alternateName: 'Handicraft Market Kota Kinabalu',
-  description: SITE.description,
-  url: baseUrl,
-  image: site ? new URL('/gallery/handicraft-market-01.jpg', site).toString() : '/gallery/handicraft-market-01.jpg',
-  inLanguage: SITE.language,
-  address: {
-    '@type': 'PostalAddress',
-    streetAddress: '7, Jalan Tun Fuad Stephen, Pusat Bandar Kota Kinabalu',
-    addressLocality: 'Kota Kinabalu',
-    addressRegion: 'Sabah',
-    postalCode: '88000',
-    addressCountry: 'MY',
-  },
-  geo: {
-    '@type': 'GeoCoordinates',
-    latitude: SITE.coordinates.lat,
-    longitude: SITE.coordinates.lng,
-  },
-  openingHoursSpecification: [
-    {
-      '@type': 'OpeningHoursSpecification',
-      dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'],
-      opens: '09:00',
-      closes: '18:00',
-    },
-  ],
+  name: t.meta.name,
+  alternateName: t.meta.alternateName,
+  description: resolvedDescription,
+  url: localeUrl,
+  image: ogImage,
+  inLanguage: t.meta.htmlLang,
+  address: addressLd,
+  geo: geoLd,
+  openingHoursSpecification: openingHoursLd,
   aggregateRating: {
     '@type': 'AggregateRating',
     ratingValue: String(SITE.ratingValue),
@@ -61,31 +106,14 @@ const touristAttractionLd = {
 const localBusinessLd = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
-  name: SITE.name,
-  description: SITE.description,
-  url: baseUrl,
-  image: site ? new URL('/gallery/handicraft-market-01.jpg', site).toString() : '/gallery/handicraft-market-01.jpg',
-  address: {
-    '@type': 'PostalAddress',
-    streetAddress: '7, Jalan Tun Fuad Stephen, Pusat Bandar Kota Kinabalu',
-    addressLocality: 'Kota Kinabalu',
-    addressRegion: 'Sabah',
-    postalCode: '88000',
-    addressCountry: 'MY',
-  },
-  geo: {
-    '@type': 'GeoCoordinates',
-    latitude: SITE.coordinates.lat,
-    longitude: SITE.coordinates.lng,
-  },
-  openingHoursSpecification: [
-    {
-      '@type': 'OpeningHoursSpecification',
-      dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'],
-      opens: '09:00',
-      closes: '18:00',
-    },
-  ],
+  name: t.meta.name,
+  alternateName: t.meta.alternateName,
+  description: resolvedDescription,
+  url: localeUrl,
+  image: ogImage,
+  address: addressLd,
+  geo: geoLd,
+  openingHoursSpecification: openingHoursLd,
   aggregateRating: {
     '@type': 'AggregateRating',
     ratingValue: String(SITE.ratingValue),
@@ -94,29 +122,116 @@ const localBusinessLd = {
   priceRange: SITE.priceRange,
   acceptsReservations: 'No',
 };
+
+const publisherLd = {
+  '@type': 'Organization',
+  name: t.meta.name,
+  url: homeUrl,
+};
+
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: resolvedTitle,
+  description: resolvedDescription,
+  inLanguage: t.meta.htmlLang,
+  url: localeUrl,
+  image: ogImage,
+  datePublished: CONTENT_DATE.published,
+  dateModified: CONTENT_DATE.modified,
+  author: publisherLd,
+  publisher: publisherLd,
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': localeUrl,
+  },
+  about: {
+    '@type': 'TouristAttraction',
+    name: t.meta.name,
+    alternateName: t.meta.alternateName,
+    address: addressLd,
+    geo: geoLd,
+    openingHoursSpecification: openingHoursLd,
+  },
+  isPartOf: {
+    '@type': 'WebSite',
+    name: t.meta.name,
+    url: homeUrl,
+  },
+};
+
+const faqPageLd = faq?.length
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      '@id': `${localeUrl}#faqpage`,
+      inLanguage: t.meta.htmlLang,
+      mainEntity: faq.map((f, idx) => ({
+        '@type': 'Question',
+        name: f.q,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: f.a,
+        },
+        position: idx + 1,
+      })),
+    }
+  : undefined;
+
+const breadcrumbLd = breadcrumbs?.length
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      inLanguage: t.meta.htmlLang,
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: t.meta.name,
+          item: homeUrl,
+        },
+        ...breadcrumbs.map((b, i) => ({
+          '@type': 'ListItem',
+          position: i + 2,
+          name: b.name,
+          item: site ? new URL(pagePaths[b.pageKey][locale], site).toString() : pagePaths[b.pageKey][locale],
+        })),
+      ],
+    }
+  : undefined;
 ---
 
 <!doctype html>
-<html lang={SITE.language}>
+<html lang={t.meta.htmlLang}>
   <head>
-    <BaseHead title={title} description={description} image={image} />
+    <BaseHead
+      title={resolvedTitle}
+      description={resolvedDescription}
+      image={image}
+      locale={locale}
+      canonical={paths[locale]}
+      alternatePaths={paths}
+    />
     <GA4 />
-    <script
-      is:inline
-      type="application/ld+json"
-      set:html={JSON.stringify(touristAttractionLd)}
-    ></script>
-    <script
-      is:inline
-      type="application/ld+json"
-      set:html={JSON.stringify(localBusinessLd)}
-    ></script>
+    {schema === 'place' && (
+      <script is:inline type="application/ld+json" set:html={JSON.stringify(touristAttractionLd)}></script>
+      <script is:inline type="application/ld+json" set:html={JSON.stringify(localBusinessLd)}></script>
+    )}
+    {schema === 'guide' && (
+      <script is:inline type="application/ld+json" set:html={JSON.stringify(articleLd)}></script>
+    )}
+    {breadcrumbLd && (
+      <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbLd)}></script>
+    )}
+    {faqPageLd && (
+      <script is:inline type="application/ld+json" set:html={JSON.stringify(faqPageLd)}></script>
+    )}
   </head>
   <body class="flex min-h-screen flex-col">
-    <Header />
+    <Header locale={locale} />
     <main class="flex-1">
       <slot />
     </main>
-    <Footer />
+    <Footer locale={locale} />
   </body>
 </html>
