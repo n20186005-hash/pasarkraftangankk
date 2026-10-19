@@ -27,19 +27,11 @@ const priceBadge: Record<string, string> = {
   mewah: 'bg-sabah-batik-100 text-sabah-batik-700',
 };
 
-const ticketIcon = (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M13 5v2"/><path d="M13 17v2"/><path d="M13 11v2"/></svg>
-);
-const clockIcon = (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-);
-const stopwatchIcon = (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2"/><path d="M5 3 2 6"/><path d="m22 6-3-3"/><path d="M9 2h6"/></svg>
-);
-const sunIcon = (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
-);
-const keyInfoIcons: Record<string, astroHTML.JSX.Element> = {
+const ticketIcon = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M13 5v2"/><path d="M13 17v2"/><path d="M13 11v2"/></svg>`;
+const clockIcon = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>`;
+const stopwatchIcon = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2"/><path d="M5 3 2 6"/><path d="m22 6-3-3"/><path d="M9 2h6"/></svg>`;
+const sunIcon = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>`;
+const keyInfoIcons: Record<string, string> = {
   ticket: ticketIcon,
   clock: clockIcon,
   stopwatch: stopwatchIcon,
@@ -49,25 +41,26 @@ const keyInfoIcons: Record<string, astroHTML.JSX.Element> = {
 
 <BaseLayout locale={locale}>
   <!-- SECTION 1: HERO -->
-  <section id="hero" class="relative overflow-hidden">
-    <div class="relative h-[72vh] min-h-[520px] w-full">
+  <section id="hero" class="relative overflow-hidden bg-sabah-ocean-950">
+    <div class="relative h-[38vh] min-h-[240px] w-full">
       <img
         src={GALLERY[0]}
         alt={t.hero.h1}
         class="absolute inset-0 h-full w-full object-cover"
         loading="eager"
+        fetchpriority="high"
         width="1600"
         height="900"
       />
       <div class="absolute inset-0 hero-overlay" />
     </div>
-    <div class="container relative -mt-16 md:-mt-20 pb-6 md:pb-10">
+    <div class="container relative py-8 md:py-12">
       <div class="max-w-3xl text-white">
         <span class="inline-flex items-center gap-2 rounded-full bg-white/15 backdrop-blur border border-white/20 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-white/90">
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
           {t.hero.badge}
         </span>
-        <h1 class="mt-5 font-display text-4xl md:text-6xl font-bold tracking-tight leading-[1.1]">
+        <h1 class="mt-5 text-white font-display text-4xl md:text-6xl font-bold tracking-tight leading-[1.1]">
           {t.hero.h1}
         </h1>
         <p class="mt-5 text-lg md:text-xl leading-relaxed text-white/90 max-w-2xl">
@@ -85,9 +78,9 @@ const keyInfoIcons: Record<string, astroHTML.JSX.Element> = {
         </div>
         <div class="mt-7 flex flex-wrap items-center gap-4 text-sm text-white/85">
           <span class="inline-flex items-center gap-2">
-            <span class="inline-flex gap-0.5 text-amber-300">★★★★★</span>
+            <span class="inline-flex gap-0.5 text-amber-300" aria-hidden="true">★</span>
             <span class="font-semibold text-white">{SITE.ratingValue.toFixed(1)}</span>
-            <span>· {SITE.reviewCount.toLocaleString(t.meta.htmlLang)} {t.hero.reviewsWord}</span>
+            <span>· {SITE.reviewCount.toLocaleString(t.meta.htmlLang)} {t.hero.reviewsWord} · Google Maps · 2026-10-19</span>
           </span>
           <span class="h-4 w-px bg-white/25"></span>
           <span class="inline-flex items-center gap-1.5">
@@ -99,6 +92,16 @@ const keyInfoIcons: Record<string, astroHTML.JSX.Element> = {
     </div>
   </section>
 
+  <section class="container py-6" aria-label="Sumber / Sources / 来源">
+    <p class="text-sm leading-relaxed text-sabah-ocean-700">{t.map.intro}</p>
+    <div class="mt-3 flex flex-wrap gap-4 text-sm underline underline-offset-4">
+      <a href={SITE.mapsUrl} target="_blank" rel="noopener noreferrer">Google Maps — Pasar Kraftangan</a>
+      <a href="https://sabahtourism.com/destination/handicraft-market/?locale=en" target="_blank" rel="noopener noreferrer">Sabah Tourism — Anjung Kinabalu / Handicraft Market</a>
+      <a href={guidePaths.shopping[locale]}>{t.guidesNav.shopping}</a>
+      <a href="#peta">{t.map.title}</a>
+    </div>
+  </section>
+
   <!-- SECTION 2: KEY INFO CARDS -->
   <section id="info-penting" class="scroll-mt-24">
     <div class="container py-10 md:py-14">
@@ -107,7 +110,7 @@ const keyInfoIcons: Record<string, astroHTML.JSX.Element> = {
           <div class="card p-5 md:p-6">
             <div class="flex items-start gap-4">
               <div class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-sabah-ocean-100 text-sabah-ocean-700">
-                {keyInfoIcons[k.icon]}
+                <Fragment set:html={keyInfoIcons[k.icon]} />
               </div>
               <div class="min-w-0 flex-1">
                 <p class="text-xs font-semibold uppercase tracking-wider text-sabah-ocean-500">{k.label}</p>
@@ -206,7 +209,7 @@ const keyInfoIcons: Record<string, astroHTML.JSX.Element> = {
     <div class="container py-16 md:py-20">
       <div class="grid gap-10 lg:grid-cols-12 items-start">
         <div class="lg:col-span-5">
-          <span class="section-eyebrow">{ticketIcon}{t.tickets.eyebrow}</span>
+          <span class="section-eyebrow"><Fragment set:html={ticketIcon} />{t.tickets.eyebrow}</span>
           <h2 class="section-title mt-3">{t.tickets.title}</h2>
           <p class="mt-4 text-sabah-ocean-700 leading-prose">{t.tickets.intro}</p>
           <div class="mt-6 card p-5 border-sabah-batik-200 bg-sabah-batik-50/60">
