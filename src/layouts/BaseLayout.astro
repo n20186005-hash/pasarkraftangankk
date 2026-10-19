@@ -29,7 +29,7 @@ interface Props {
   faq?: FaqItem[];
   /** When provided, a BreadcrumbList JSON-LD block is emitted (home is prepended). */
   breadcrumbs?: Breadcrumb[];
-  /** 'place' = TouristAttraction + LocalBusiness, 'guide' = Article. */
+  /** 'place' = TouristAttraction, 'guide' = Article. */
   schema?: 'place' | 'guide';
 }
 
@@ -63,15 +63,6 @@ const addressLd = {
   addressCountry: 'MY',
 };
 
-const openingHoursLd = [
-  {
-    '@type': 'OpeningHoursSpecification',
-    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
-    opens: '09:00',
-    closes: '18:00',
-  },
-];
-
 const geoLd = {
   '@type': 'GeoCoordinates',
   latitude: SITE.coordinates.lat,
@@ -89,38 +80,9 @@ const touristAttractionLd = {
   inLanguage: t.meta.htmlLang,
   address: addressLd,
   geo: geoLd,
-  openingHoursSpecification: openingHoursLd,
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: String(SITE.ratingValue),
-    reviewCount: String(SITE.reviewCount),
-    bestRating: '5',
-    worstRating: '1',
-  },
-  priceRange: SITE.priceRange,
-  fee: 'No entrance fee',
+  hasMap: SITE.mapsUrl,
   touristType: ['Cultural tourist', 'Shopper', 'Family visitor'],
   availableLanguage: ['ms', 'en', 'zh'],
-};
-
-const localBusinessLd = {
-  '@context': 'https://schema.org',
-  '@type': 'LocalBusiness',
-  name: t.meta.name,
-  alternateName: t.meta.alternateName,
-  description: resolvedDescription,
-  url: localeUrl,
-  image: ogImage,
-  address: addressLd,
-  geo: geoLd,
-  openingHoursSpecification: openingHoursLd,
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: String(SITE.ratingValue),
-    reviewCount: String(SITE.reviewCount),
-  },
-  priceRange: SITE.priceRange,
-  acceptsReservations: 'No',
 };
 
 const publisherLd = {
@@ -151,8 +113,7 @@ const articleLd = {
     alternateName: t.meta.alternateName,
     address: addressLd,
     geo: geoLd,
-    openingHoursSpecification: openingHoursLd,
-  },
+    },
   isPartOf: {
     '@type': 'WebSite',
     name: t.meta.name,
@@ -215,7 +176,6 @@ const breadcrumbLd = breadcrumbs?.length
     <GA4 />
     {schema === 'place' && (
       <script is:inline type="application/ld+json" set:html={JSON.stringify(touristAttractionLd)}></script>
-      <script is:inline type="application/ld+json" set:html={JSON.stringify(localBusinessLd)}></script>
     )}
     {schema === 'guide' && (
       <script is:inline type="application/ld+json" set:html={JSON.stringify(articleLd)}></script>
@@ -228,7 +188,7 @@ const breadcrumbLd = breadcrumbs?.length
     )}
   </head>
   <body class="flex min-h-screen flex-col">
-    <Header locale={locale} />
+    <Header locale={locale} pageKey={pageKey} />
     <main class="flex-1">
       <slot />
     </main>

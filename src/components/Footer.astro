@@ -1,6 +1,6 @@
 ---
 import { SITE } from '@/consts';
-import { GUIDES, guidePaths, type Locale } from '@/i18n/config';
+import { GUIDES, guidePaths, localePaths, type Locale } from '@/i18n/config';
 import { translations } from '@/i18n/ui';
 
 interface Props {
@@ -31,7 +31,7 @@ const t = translations[locale];
       <ul class="text-sm grid grid-cols-2 gap-2 text-sabah-ocean-200">
         {t.footer.quickLinks.map((link) => (
           <li>
-            <a href={link.href} class="hover:text-white underline-offset-2 hover:underline">{link.label}</a>
+            <a href={`${localePaths[locale]}${link.href}`} class="hover:text-white underline-offset-2 hover:underline">{link.label}</a>
           </li>
         ))}
       </ul>

@@ -1,5 +1,4 @@
 // @ts-check
-import cloudflare from '@astrojs/cloudflare';
 import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
 import { defineConfig } from 'astro/config';
@@ -20,9 +19,6 @@ if (SITE_URL) {
 export default defineConfig({
   site: SITE_URL || undefined,
   output: 'static',
-  adapter: cloudflare({
-    imageService: 'passthrough',
-  }),
   integrations,
   vite: {
     build: {
