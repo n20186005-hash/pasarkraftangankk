@@ -34,6 +34,11 @@ const ms = {
   guidesNav: {
     shopping: 'Apa Nak Beli',
     itinerary: 'Rancangan 1 Hari',
+    'best-time': 'Masa Terbaik',
+    'airport-to-market': 'Dari Lapangan Terbang',
+    'seafood-near-market': 'Makanan Laut',
+    'atkinson-clock-tower': 'Menara Jam Atkinson',
+    'half-day-itinerary': 'Rancangan Separuh Hari',
   },
   keyInfo: [
   {
@@ -328,131 +333,6 @@ const ms = {
     backHomeLabel: 'Kembali ke panduan utama',
     backHomeHint:
       'Panduan penuh Pasar Kraftangan: waktu operasi, parkir, pengangkutan, makanan & peta.',
-    shopping: {
-      meta: {
-        title: 'Apa Yang Boleh Dibeli di Pasar Kraftangan KK? | Panduan Belian Sabah',
-        description:
-          "Apa nak beli di Pasar Kraftangan KK: sarung, mutiara, ukiran dan cenderamata. Tips membandingkan bahan, asal, harga dan resit sebelum membeli.",
-      },
-      eyebrow: 'Panduan Membeli-Belah',
-      h1: 'Apa Yang Boleh Dibeli di Pasar Kraftangan Kota Kinabalu?',
-      intro:
-        "Panduan memilih cenderamata di Pasar Kraftangan: bahan, asal, kemasan dan harga perlu disahkan dengan penjual. Harga semasa tidak disahkan untuk panduan ini.",
-      noteLabel: "Semak dengan penjual",
-      blocks: [
-  {
-    "heading": "Perhiasan mutiara",
-    "body": "Tanya jenis mutiara dan bahan tetapan. Minta resit dan butiran bertulis; jangan gunakan ujian menggosok pada gigi untuk mengesahkan barang.",
-    "items": [],
-    "note": "Semak dengan penjual"
-  },
-  {
-    "heading": "Sarung, pareo & kain",
-    "body": "Bandingkan sarung, pareo dan kain mengikut bahan, saiz, kaedah pembuatan dan label asal.",
-    "items": [],
-    "note": "Semak dengan penjual"
-  },
-  {
-    "heading": "Ukiran & alat muzik",
-    "body": "Sabah Tourism menyebut sompoton dan barangan ukiran sebagai pilihan cenderamata. Periksa kemasan dan minta penjual menjelaskan bahan serta asalnya.",
-    "items": [],
-    "note": "Semak dengan penjual"
-  }
-],
-      tipsTitle: '💡 Tips Beli-Belah di Pasar Kraftangan',
-      tips: [
-  "Bandingkan bahan dan harga di beberapa gerai.",
-  "Tawar secara sopan tanpa menganggap diskaun tertentu dijamin.",
-  "Sahkan kaedah bayaran dan polisi pulangan sebelum membayar.",
-  "Minta resit untuk pembelian bernilai tinggi."
-],
-      faq: {
-        eyebrow: 'Soalan Lazim',
-        title: 'FAQ · Panduan belian',
-        intro: "Jawapan tentang nama tempat, waktu, lokasi dan belian.",
-        items: [
-  {
-    "q": "Apa yang boleh dibeli?",
-    "a": "Cari sarung atau pareo, perhiasan mutiara, ukiran kayu, sompoton dan cenderamata. Stok, bahan, asal dan harga berbeza mengikut penjual."
-  },
-  {
-    "q": "Bolehkah menawar harga?",
-    "a": "Sabah Tourism mencadangkan tawar-menawar. Bandingkan beberapa gerai dan tawar secara sopan; tiada peratus diskaun yang dijamin."
-  },
-  {
-    "q": "Adakah mutiara dijamin asli?",
-    "a": "Tidak semua barang boleh disahkan melalui pemerhatian. Minta butiran bertulis tentang jenis, rawatan dan bahan tetapan serta resit. Untuk belian bernilai tinggi, dapatkan pengesahan pakar yang bebas."
-  },
-  {
-    "q": "Bagaimana dengan bayaran dan kemudahan?",
-    "a": "Sahkan kaedah bayaran, tandas, akses tanpa tangga dan tempat letak kereta di lokasi. Jangan anggap semua gerai menerima kad atau semua lorong sesuai untuk kerusi roda."
-  }
-],
-      },
-    },
-    itinerary: {
-      meta: {
-        title: 'Rancangan Satu Hari di Kota Kinabalu | Pasar Kraftangan, Pasar Malam & Senja',
-        description:
-          "Rancang lawatan Pasar Kraftangan Kota Kinabalu, gerai makanan dan kawasan waterfront dengan masa fleksibel serta pautan peta dan sumber rasmi.",
-      },
-      eyebrow: 'Rancangan Perjalanan',
-      h1: 'Rancangan Satu Hari di Sekitar Pasar Kraftangan Kota Kinabalu',
-      intro:
-        "Cadangan susunan lawatan bandar yang fleksibel. Sahkan waktu gerai, cuaca dan laluan pada hari perjalanan; aktiviti pulau memerlukan rancangan berasingan.",
-      noteLabel: "Nota perancangan",
-      blocks: [
-  {
-    "heading": "Mula dengan gerai kraftangan",
-    "body": "Pilih waktu yang sesuai dengan gerai yang hendak dilawati. Bandingkan barang sebelum membeli dan simpan belian besar di tempat penginapan.",
-    "items": [],
-    "note": "Cadangan fleksibel; semak keadaan semasa"
-  },
-  {
-    "heading": "Rehat makan di kawasan pasar",
-    "body": "Cari gerai yang sedang beroperasi. Sahkan menu, harga dan caj masakan sebelum memesan.",
-    "items": [],
-    "note": "Cadangan fleksibel; semak keadaan semasa"
-  },
-  {
-    "heading": "Sambung ke bandar atau waterfront",
-    "body": "Gunakan laluan peta ke Gaya Street atau kawasan waterfront yang boleh diakses. Semak cuaca dan waktu matahari terbenam untuk tarikh anda.",
-    "items": [],
-    "note": "Cadangan fleksibel; semak keadaan semasa"
-  },
-  {
-    "heading": "Jika mahu ke pulau",
-    "body": "Rancang perjalanan berasingan melalui Jesselton Point. Sahkan tiket, yuran, masa perjalanan dan bot terakhir sebelum memilih aktiviti lain.",
-    "items": [],
-    "note": "Cadangan fleksibel; semak keadaan semasa"
-  }
-],
-      tipsTitle: '💡 Tips Menyusun Hari Anda',
-      tips: [
-  "Jangan anggap Jesselton Point hanya 200 meter dari pasar. Gunakan laluan sebenar.",
-  "Simpan masa untuk perjalanan pulang dan rehat.",
-  "Waktu senarai pasar tidak sama dengan waktu setiap gerai atau bot."
-],
-      faq: {
-        eyebrow: 'Soalan Lazim',
-        title: 'FAQ · Rancangan satu hari',
-        intro: "Jawapan tentang nama tempat, waktu, lokasi dan belian.",
-        items: [
-  {
-    "q": "Apakah nama lain Pasar Kraftangan Kota Kinabalu?",
-    "a": "Pasar Kraftangan juga dicari sebagai Handicraft Market atau Filipino Market. Pautan peta laman ini kini memaparkan Pasar Kraftangan / Filipino Market. Sabah Tourism menerbitkan panduan pasarnya di bawah tajuk Anjung Kinabalu; nama boleh merujuk kawasan pasar yang berdekatan, jadi ikut pin dan alamat."
-  },
-  {
-    "q": "Bilakah waktu operasi pasar?",
-    "a": "Google Maps menyenaraikan 08:00–22:00 setiap hari pada 19 Oktober 2026. Waktu ini merujuk senarai tempat; gerai kraftangan, makanan dan kedai individu boleh mempunyai waktu berlainan."
-  },
-  {
-    "q": "Di manakah lokasi Pasar Kraftangan?",
-    "a": "7, Jalan Tun Fuad Stephen, Pusat Bandar Kota Kinabalu, 88000 Kota Kinabalu, Sabah. Gunakan pautan peta untuk laluan dari lokasi sebenar anda."
-  }
-],
-      },
-    },
   },
   header: {
     visitUs: 'Lawati Kami',
@@ -519,6 +399,11 @@ const en: Translation = {
   guidesNav: {
     shopping: 'What to Buy',
     itinerary: 'One-Day Plan',
+    'best-time': 'Best Time',
+    'airport-to-market': 'From the Airport',
+    'seafood-near-market': 'Seafood Nearby',
+    'atkinson-clock-tower': 'Atkinson Clock Tower',
+    'half-day-itinerary': 'Half-Day Plan',
   },
   keyInfo: [
   {
@@ -813,131 +698,6 @@ const en: Translation = {
     backHomeLabel: 'Back to the main guide',
     backHomeHint:
       'The full Pasar Kraftangan guide: opening hours, parking, transport, food and map.',
-    shopping: {
-      meta: {
-        title: 'What to Buy at Kota Kinabalu Handicraft Market | Sabah Shopping Guide',
-        description:
-          "What to buy at Kota Kinabalu Handicraft Market: sarongs, pearls, carvings and souvenirs. Compare materials, origin, prices and receipts before buying.",
-      },
-      eyebrow: 'Shopping Guide',
-      h1: 'What to Buy at the Kota Kinabalu Handicraft Market',
-      intro:
-        "Choose market souvenirs by checking materials, origin, finish and price with the seller. Current prices have not been verified for this guide.",
-      noteLabel: "Confirm with the seller",
-      blocks: [
-  {
-    "heading": "Pearl jewellery",
-    "body": "Ask about the pearl type and setting materials. Request a receipt and written details; rubbing a pearl against your teeth is not a reliable way to certify the item.",
-    "items": [],
-    "note": "Confirm with the seller"
-  },
-  {
-    "heading": "Sarongs, pareos & textiles",
-    "body": "Compare sarongs, pareos and textiles by material, dimensions, production method and origin labels.",
-    "items": [],
-    "note": "Confirm with the seller"
-  },
-  {
-    "heading": "Carvings & instruments",
-    "body": "Sabah Tourism mentions sompoton and carved items as souvenir choices. Check the finish and ask the seller about materials and origin.",
-    "items": [],
-    "note": "Confirm with the seller"
-  }
-],
-      tipsTitle: '💡 Shopping Tips for the Market',
-      tips: [
-  "Compare materials and prices at several stalls.",
-  "Bargain politely without expecting a guaranteed discount.",
-  "Confirm payment methods and return terms before paying.",
-  "Ask for a receipt for expensive purchases."
-],
-      faq: {
-        eyebrow: 'FAQ',
-        title: 'FAQ · Shopping guide',
-        intro: "Answers about names, hours, location and shopping.",
-        items: [
-  {
-    "q": "What can I buy?",
-    "a": "Look for sarongs or pareos, pearl jewellery, wooden carvings, sompoton and small souvenirs. Stock, materials, origin and prices vary between sellers."
-  },
-  {
-    "q": "Can I bargain?",
-    "a": "Sabah Tourism recommends bargaining. Compare stalls and negotiate politely; no fixed discount is guaranteed."
-  },
-  {
-    "q": "Are the pearls guaranteed genuine?",
-    "a": "Appearance alone cannot confirm every item. Ask for written details of type, treatment and setting, plus a receipt. Consider independent expert verification for expensive purchases."
-  },
-  {
-    "q": "What payment and facilities are available?",
-    "a": "Confirm payment methods, toilets, step-free access and parking locally. Do not assume every stall takes cards or every aisle is suitable for a wheelchair."
-  }
-],
-      },
-    },
-    itinerary: {
-      meta: {
-        title: 'One Day in Kota Kinabalu Itinerary | Handicraft Market, Night Market & Sunset',
-        description:
-          "Plan Kota Kinabalu Handicraft Market, food stalls and waterfront stops with flexible timing, map links and official references.",
-      },
-      eyebrow: 'Itinerary',
-      h1: 'One Day Around the Kota Kinabalu Handicraft Market',
-      intro:
-        "A flexible order for a city visit. Check stall hours, weather and routes on the day; island activities need separate planning.",
-      noteLabel: "Planning note",
-      blocks: [
-  {
-    "heading": "Start with handicraft stalls",
-    "body": "Choose a time that suits the stalls you want to visit. Compare goods before buying and leave bulky purchases at your accommodation.",
-    "items": [],
-    "note": "Flexible suggestion; check current conditions"
-  },
-  {
-    "heading": "Take a meal break nearby",
-    "body": "Choose a stall that is operating. Confirm the menu, prices and cooking charges before ordering.",
-    "items": [],
-    "note": "Flexible suggestion; check current conditions"
-  },
-  {
-    "heading": "Continue into town or along the waterfront",
-    "body": "Use directions to Gaya Street or accessible waterfront areas. Check weather and sunset time for your travel date.",
-    "items": [],
-    "note": "Flexible suggestion; check current conditions"
-  },
-  {
-    "heading": "If you want an island trip",
-    "body": "Plan separately through Jesselton Point. Confirm tickets, fees, travel time and the last return boat before fitting in other activities.",
-    "items": [],
-    "note": "Flexible suggestion; check current conditions"
-  }
-],
-      tipsTitle: '💡 Tips for Planning Your Day',
-      tips: [
-  "Do not assume Jesselton Point is only 200 metres from this market; use current directions.",
-  "Allow time for breaks and the return journey.",
-  "Market listing hours do not describe every stall or boat service."
-],
-      faq: {
-        eyebrow: 'FAQ',
-        title: 'FAQ · One-day itinerary',
-        intro: "Answers about names, hours, location and shopping.",
-        items: [
-  {
-    "q": "Is this the Filipino Market?",
-    "a": "Pasar Kraftangan is also searched as Handicraft Market or Filipino Market. The map linked here currently shows Pasar Kraftangan / Filipino Market. Sabah Tourism publishes its market guide under Anjung Kinabalu; names can cover neighbouring market areas, so follow the pin and street address."
-  },
-  {
-    "q": "What are the opening hours?",
-    "a": "Google Maps listed 08:00–22:00 daily when checked on 19 October 2026. These are listing hours, not a promise that every handicraft shop or food stall operates throughout that period."
-  },
-  {
-    "q": "Where is the market?",
-    "a": "7, Jalan Tun Fuad Stephen, Pusat Bandar Kota Kinabalu, 88000 Kota Kinabalu, Sabah. Open the map link for directions from your actual starting point."
-  }
-],
-      },
-    },
   },
   header: {
     visitUs: 'Visit Us',
@@ -1002,6 +762,11 @@ const zh: Translation = {
   guidesNav: {
     shopping: '必买清单',
     itinerary: '一日游行程',
+    'best-time': '最佳时间',
+    'airport-to-market': '机场到市场',
+    'seafood-near-market': '周边海鲜',
+    'atkinson-clock-tower': '艾京生钟楼',
+    'half-day-itinerary': '半日行程',
   },
   keyInfo: [
   {
@@ -1291,131 +1056,6 @@ const zh: Translation = {
     relatedTitle: '相关指南',
     backHomeLabel: '返回主指南',
     backHomeHint: '手工艺品市场完整指南：营业时间、停车、交通、美食与地图。',
-    shopping: {
-      meta: {
-        title: '亚庇手工艺品市场必买清单 | 沙巴伴手礼与购物攻略',
-        description:
-          "亚庇手工艺品市场买什么：沙笼、珍珠饰品、木雕与纪念品。比较材质、产地和价格，购买前确认收据与退换条件。",
-      },
-      eyebrow: '购物攻略',
-      h1: '亚庇手工艺品市场必买清单',
-      intro:
-        "选购纪念品时向卖家核对材质、产地、做工和价格。本指南尚未核实当前商品报价。",
-      noteLabel: "向卖家确认",
-      blocks: [
-  {
-    "heading": "珍珠饰品",
-    "body": "询问珍珠类别和镶嵌材质，索取收据及书面说明。用牙齿摩擦不能可靠地为商品真伪提供证明。",
-    "items": [],
-    "note": "向卖家确认"
-  },
-  {
-    "heading": "沙笼、披布与织物",
-    "body": "比较沙笼、披布和织物的材质、尺寸、制作方法和产地标签。",
-    "items": [],
-    "note": "向卖家确认"
-  },
-  {
-    "heading": "雕刻与传统乐器",
-    "body": "沙巴旅游局提到 sompoton 传统乐器与雕刻品等纪念品选择。检查做工，并向卖家确认材料和产地。",
-    "items": [],
-    "note": "向卖家确认"
-  }
-],
-      tipsTitle: '💡 市场购物小贴士',
-      tips: [
-  "比较多家摊位的材质和价格。",
-  "礼貌议价，不预设一定能获得某个折扣。",
-  "付款前确认支付方式和退换条件。",
-  "高价商品索取收据。"
-],
-      faq: {
-        eyebrow: '常见问题',
-        title: 'FAQ · 购物攻略',
-        intro: "关于名称、营业时间、位置和购物的常见问题。",
-        items: [
-  {
-    "q": "可以买什么？",
-    "a": "可寻找沙笼、披布、珍珠饰品、木雕、sompoton传统乐器和小纪念品。库存、材质、产地和价格因卖家而异。"
-  },
-  {
-    "q": "可以议价吗？",
-    "a": "沙巴旅游局建议议价。先比较不同摊位，再礼貌沟通；没有保证能获得的固定折扣。"
-  },
-  {
-    "q": "珍珠都保证是真的吗？",
-    "a": "不能仅凭外观确认每件商品。购买前索取类别、处理方式、镶嵌材质等书面信息及收据；高价商品可考虑独立专业鉴定。"
-  },
-  {
-    "q": "支付和设施有什么注意事项？",
-    "a": "现场核对支付方式、厕所、无台阶通道和停车位置。不要默认每个摊位支持刷卡，也不要默认全部通道都适合轮椅。"
-  }
-],
-      },
-    },
-    itinerary: {
-      meta: {
-        title: '亚庇一日游行程 | 手工艺品市场、夜市与日落',
-        description:
-          "安排亚庇手工艺品市场、餐饮摊位和海滨散步，提供灵活时间建议、地图与官方参考来源。",
-      },
-      eyebrow: '行程规划',
-      h1: '亚庇手工艺品市场周边一日游行程',
-      intro:
-        "灵活安排市区游览顺序。出发当天核对摊位时间、天气与路线；跳岛活动应另行规划。",
-      noteLabel: "规划提醒",
-      blocks: [
-  {
-    "heading": "先逛手工艺摊位",
-    "body": "根据目标摊位选择到访时间，比较商品后再购买，大件物品可先送回住宿处。",
-    "items": [],
-    "note": "灵活建议；以当天情况为准"
-  },
-  {
-    "heading": "在市场周边休息用餐",
-    "body": "选择正在营业的摊位，点餐前确认菜单、单价和加工费。",
-    "items": [],
-    "note": "灵活建议；以当天情况为准"
-  },
-  {
-    "heading": "继续市区或海滨游览",
-    "body": "使用地图前往 Gaya Street 或开放的海滨区域，并查询出行当天的天气和日落时间。",
-    "items": [],
-    "note": "灵活建议；以当天情况为准"
-  },
-  {
-    "heading": "如需安排跳岛",
-    "body": "另行规划经 Jesselton Point 出发的船程。确认船票、费用、路程和末班返程船，再安排其他活动。",
-    "items": [],
-    "note": "灵活建议；以当天情况为准"
-  }
-],
-      tipsTitle: '💡 行程安排小贴士',
-      tips: [
-  "不要假设 Jesselton Point 距市场仅200米，请按实际路线规划。",
-  "预留休息及返程时间。",
-  "市场地点所列时间不代表各摊位或船班时刻。"
-],
-      faq: {
-        eyebrow: '常见问题',
-        title: 'FAQ · 一日游行程',
-        intro: "关于名称、营业时间、位置和购物的常见问题。",
-        items: [
-  {
-    "q": "这里是菲律宾市场吗？",
-    "a": "Pasar Kraftangan 也常被搜索为 Handicraft Market 或 Filipino Market。本站链接的地图目前显示菲律宾夜市／Pasar Kraftangan。沙巴旅游局以 Anjung Kinabalu 为标题介绍该市场；不同名称可能涵盖相邻市场区域，请以定位和街道地址核对。"
-  },
-  {
-    "q": "市场几点营业？",
-    "a": "2026年10月19日核对时，Google 地图显示每天08:00–22:00。这是地点列表的营业时间，并不保证每个手工艺摊、商店或餐饮摊全时段开放。"
-  },
-  {
-    "q": "具体位置在哪里？",
-    "a": "7, Jalan Tun Fuad Stephen, Pusat Bandar Kota Kinabalu, 88000 Kota Kinabalu, Sabah。请打开地图，从实际出发地点规划路线。"
-  }
-],
-      },
-    },
   },
   header: {
     visitUs: '到访信息',

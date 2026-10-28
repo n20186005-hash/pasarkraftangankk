@@ -1,8 +1,9 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { GALLERY } from '@/consts';
-import { GUIDES, guidePaths, localePaths, type GuideKey, type Locale } from '@/i18n/config';
+import { GUIDES, guidePaths, localePaths, GUIDE_RELATED, type GuideKey, type Locale } from '@/i18n/config';
 import { translations } from '@/i18n/ui';
+import { GUIDE_CONTENT } from '@/i18n/guide-content';
 
 interface Props {
   locale: Locale;
@@ -11,14 +12,19 @@ interface Props {
 
 const { locale, guide } = Astro.props;
 const t = translations[locale];
-const g = t.guides[guide];
+const g = GUIDE_CONTENT[guide][locale];
 
 const HERO_IMAGES: Record<GuideKey, string> = {
   shopping: GALLERY[5],
   itinerary: GALLERY[12],
+  'best-time': GALLERY[0],
+  'airport-to-market': GALLERY[14],
+  'seafood-near-market': GALLERY[7],
+  'atkinson-clock-tower': GALLERY[9],
+  'half-day-itinerary': GALLERY[2],
 };
 
-const otherGuides = GUIDES.filter((k) => k !== guide);
+const relatedGuides = GUIDE_RELATED[guide] ?? [];
 const homePath = localePaths[locale];
 ---
 
@@ -138,11 +144,11 @@ const homePath = localePaths[locale];
     <div class="container py-14 md:py-16">
       <h2 class="section-title">{t.guides.relatedTitle}</h2>
       <div class="mt-6 grid gap-4 md:grid-cols-2">
-        {otherGuides.map((k) => (
+        {relatedGuides.map((k) => (
           <a href={guidePaths[k][locale]} class="card p-5 md:p-6 hover:shadow-lg transition block">
             <p class="text-xs font-semibold uppercase tracking-wider text-sabah-ocean-500">{t.guidesNav[k]}</p>
-            <p class="mt-2 font-display text-lg font-bold text-sabah-ocean-900 leading-snug">{t.guides[k].h1}</p>
-            <p class="mt-2 text-sm text-sabah-ocean-700 leading-relaxed">{t.guides[k].meta.description}</p>
+            <p class="mt-2 font-display text-lg font-bold text-sabah-ocean-900 leading-snug">{GUIDE_CONTENT[k][locale].h1}</p>
+            <p class="mt-2 text-sm text-sabah-ocean-700 leading-relaxed">{GUIDE_CONTENT[k][locale].meta.description}</p>
             <span class="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-sabah-ocean-700">
               {t.guidesNav[k]}
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
